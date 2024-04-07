@@ -3,26 +3,50 @@ from tkinter import filedialog
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
+from tkinter import messagebox
 
+
+from tkinter import messagebox
 
 def read_coordinates_from_file(file_path):
     x_coords = []
     y_coords = []
     z_coords = []
-    with open(file_path, 'r') as file:
-        for line in file:
-            values = [float(val) for val in line.split()]
-            x_coords.append(values[0])
-            y_coords.append(values[1])
-            z_coords.append(values[2])
+    while True:
+        try:
+            with open(file_path, 'r') as file:
+                for line in file:
+                    values = line.split()
+                    if len(values) != 3:
+                        raise ValueError("Plik powinien zawierać dokładnie trzy kolumny danych.")
+                    x_coords.append(float(values[0]))
+                    y_coords.append(float(values[1]))
+                    z_coords.append(float(values[2]))
+            break  # Jeśli nie wystąpi błąd, wyjście z pętli while
+        except ValueError as e:
+            messagebox.showerror("Błąd", f"Wystąpił błąd: {e}. Plik nie spełnia wymagań programu - powinien zawierać trzy kolumny z danymi numerycznymi oddzielonymi spacją i skończoną liczbę wierszy.")
+            file_path = choose_file()  # Zapytaj o nowy plik
+            if not file_path:
+                messagebox.showwarning("Wybór pliku", "Nie wybrano pliku. Kończenie działania programu.")
+                return None, None, None  # Zwraca None, jeśli użytkownik anuluje wybór pliku
+
     return np.array(x_coords), np.array(y_coords), np.array(z_coords)
 
 
 def choose_file():
     root = tk.Tk()
     root.withdraw()
-    file_path = filedialog.askopenfilename(title="Wybierz plik")
-    return file_path
+
+    messagebox.showinfo("Wybierz plik", "Wybierz plik z danymi oddzielonymi spacjami. Możesz skorzystać gotowych: ("
+                                        "'cylindrical.xyz, vertical.xyz lub horizontal.xyz')")
+
+    if messagebox.askyesno("Potwierdzenie", "Czy Twój plik spełnia podane warunki?"):
+        file_path = filedialog.askopenfilename(title="Wybierz plik")
+        return file_path
+    else:
+        print("Program wymaga pliku z danymi oddzielonymi spacjami. Proces został anulowany.")
+        root.destroy()  # zamykamy okno
+        return None
 
 
 def fit_plane_ransac(x, y, z, n_iterations=1000, threshold=0.1):
@@ -51,7 +75,9 @@ def fit_plane_ransac(x, y, z, n_iterations=1000, threshold=0.1):
             best_plane = normal_vector.tolist() + [d]
 
     return best_plane, best_inliers
-
+def ask_user_for_fitting():
+    response = input("Czy dopasować płaszczyznę do wykrytej chmury cylindrycznej? (tak/nie): ")
+    return response.strip().lower() == 'tak'
 
 def main():
     global distances, x_cluster, y_cluster, z_cluster
@@ -67,18 +93,17 @@ def main():
         colors = ['r', 'g', 'b']
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
-
+        user_decision_to_fit_plane = None
         for i in range(3):
-
             cluster_points = points[labels == i]
             x_cluster, y_cluster, z_cluster = cluster_points[:, 0], cluster_points[:, 1], cluster_points[:, 2]
-
             if (np.all(x_cluster) and np.all(y_cluster) and np.all(z_cluster)):
-                print(f"Chmura {i}: Wykryto płaszczyznę cylindryczną. Pomijanie dopasowania płaszczyzny.")
-                ax.scatter(x_cluster, y_cluster, z_cluster, color=colors[i], marker='o', label=f'Chmura {i}')
-                ax.set_title('Chmury punktów 3D z klasteryzacji k-średnich')
-                continue
-
+                print(f"Chmura {i}: Wykryto płaszczyznę cylindryczną.")
+                if user_decision_to_fit_plane is None:  # Pytamy użytkownika tylko jeśli jeszcze nie podjął decyzji
+                    user_decision_to_fit_plane = ask_user_for_fitting()
+                if not user_decision_to_fit_plane:
+                    print("Pomijanie dopasowania płaszczyzny dla wszystkich chmur. Działanie programu zakonczone")
+                    return 0  # Jeśli użytkownik nie chce dopasowywać płaszczyzn, przerywamy pętlę
             best_plane, inliers = fit_plane_ransac(x_cluster, y_cluster, z_cluster)
             if best_plane is not None:
                 A, B, C, D = best_plane
