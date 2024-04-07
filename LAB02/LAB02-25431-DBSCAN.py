@@ -4,27 +4,47 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.cluster import DBSCAN
-
+from tkinter import messagebox
 
 def read_coordinates_from_file(file_path):
     x_coords = []
     y_coords = []
     z_coords = []
-    with open(file_path, 'r') as file:
-        for line in file:
-            values = [float(val) for val in line.split()]
-            x_coords.append(values[0])
-            y_coords.append(values[1])
-            z_coords.append(values[2])
+    while True:
+        try:
+            with open(file_path, 'r') as file:
+                for line in file:
+                    values = line.split()
+                    if len(values) != 3:
+                        raise ValueError("Plik powinien zawierać dokładnie trzy kolumny danych.")
+                    x_coords.append(float(values[0]))
+                    y_coords.append(float(values[1]))
+                    z_coords.append(float(values[2]))
+            break  # Jeśli nie wystąpi błąd, wyjście z pętli while
+        except ValueError as e:
+            messagebox.showerror("Błąd", f"Wystąpił błąd: {e}. Plik nie spełnia wymagań programu - powinien zawierać trzy kolumny z danymi numerycznymi oddzielonymi spacją i skończoną liczbę wierszy.")
+            file_path = choose_file()  # Zapytaj o nowy plik
+            if not file_path:
+                messagebox.showwarning("Wybór pliku", "Nie wybrano pliku. Kończenie działania programu.")
+                return None, None, None  # Zwraca None, jeśli użytkownik anuluje wybór pliku
+
     return np.array(x_coords), np.array(y_coords), np.array(z_coords)
 
 
 def choose_file():
     root = tk.Tk()
     root.withdraw()
-    file_path = filedialog.askopenfilename(title="Wybierz plik")
-    return file_path
 
+    messagebox.showinfo("Wybierz plik", "Wybierz plik z danymi oddzielonymi spacjami. Możesz skorzystać gotowych: ("
+                                        "'cylindrical.xyz, vertical.xyz lub horizontal.xyz')")
+
+    if messagebox.askyesno("Potwierdzenie", "Czy Twój plik spełnia podane warunki?"):
+        file_path = filedialog.askopenfilename(title="Wybierz plik.")
+        return file_path
+    else:
+        print("Program wymaga pliku z danymi oddzielonymi spacjami. Proces został anulowany.")
+        root.destroy()  # zamykamy okno
+        return None
 
 def fit_plane_ransac(x, y, z, n_iterations=1000, threshold=0.1):
     global distances

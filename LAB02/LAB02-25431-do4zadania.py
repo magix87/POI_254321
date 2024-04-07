@@ -6,8 +6,6 @@ from sklearn.cluster import KMeans
 from tkinter import messagebox
 
 
-from tkinter import messagebox
-
 def read_coordinates_from_file(file_path):
     x_coords = []
     y_coords = []
