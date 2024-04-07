@@ -41,7 +41,7 @@ def choose_file():
                                         "'cylindrical.xyz, vertical.xyz lub horizontal.xyz')")
 
     if messagebox.askyesno("Potwierdzenie", "Czy Twój plik spełnia podane warunki?"):
-        file_path = filedialog.askopenfilename(title="Wybierz plik")
+        file_path = filedialog.askopenfilename(title="Wybierz plik.")
         return file_path
     else:
         print("Program wymaga pliku z danymi oddzielonymi spacjami. Proces został anulowany.")
