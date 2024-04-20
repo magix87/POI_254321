@@ -4,14 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84d27c0d-5116-4f16-82b4-c88350b7265c" name="Changes" comment="LAB01 directory&#10;254321">
+    <list default="true" id="84d27c0d-5116-4f16-82b4-c88350b7265c" name="Changes" comment="lab03 - poczatek&#10;254321 - Adam Bartosik">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LAB01-254321.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LAB02/cylindrical.xyz" beforeDir="false" afterPath="$PROJECT_DIR$/LAB02/cylindrical.xyz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wyniki-LAB01/point_cloud_cylindrical_1000.xyz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wyniki-LAB01/point_cloud_horizontal_1000.xyz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wyniki-LAB01/point_cloud_vertical_1000.xyz" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <branch-grouping>
@@ -21,24 +32,45 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2e89ILKi6qeSuksLYSFz6wXa88X" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.LAB01-254321.executor&quot;: &quot;Run&quot;,
+    &quot;Python.LAB02-25431-DBSCAN.executor&quot;: &quot;Run&quot;,
+    &quot;Python.LAB02-25431-PyRANSAC3D.executor&quot;: &quot;Run&quot;,
+    &quot;Python.LAB02-25431-do4zadania.executor&quot;: &quot;Run&quot;,
+    &quot;Python.lab2-1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.lab2-2-dziala.executor&quot;: &quot;Run&quot;,
+    &quot;Python.lab2-2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.lab2-3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.lab2-zad6-pyransac.executor&quot;: &quot;Run&quot;,
+    &quot;Python.lab2-zad6.executor&quot;: &quot;Run&quot;,
+    &quot;Python.lab2.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Python Projekty/LAB01-POI-254321&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Python Projekty\LAB01-POI-254321" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Python Projekty\LAB01-POI-254321" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.LAB01-254321">
     <configuration name="LAB01-254321" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="LAB01-POI-254321" />
       <option name="ENV_FILES" value="" />
@@ -53,6 +85,28 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="D:\Python Projekty\LAB01-POI-254321\LAB01-254321.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="lab2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="LAB01-POI-254321" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="D:\Python Projekty\LAB01-POI-254321\lab2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -86,7 +140,63 @@
       <option name="project" value="LOCAL" />
       <updated>1711275650190</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="final LAB01&#10;254321 - Adam Bartosik">
+      <option name="closed" value="true" />
+      <created>1711275932174</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711275932174</updated>
+    </task>
+    <task id="LOCAL-00003" summary="final LAB01&#10;254321 - Adam Bartosik">
+      <option name="closed" value="true" />
+      <created>1711275989380</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711275989380</updated>
+    </task>
+    <task id="LOCAL-00004" summary="final LAB002&#10;254321 - Adam Bartosik">
+      <option name="closed" value="true" />
+      <created>1712504184115</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712504184115</updated>
+    </task>
+    <task id="LOCAL-00005" summary="final LAB002, obsluga zle dodanego pliku danych&#10;254321 - Adam Bartosik">
+      <option name="closed" value="true" />
+      <created>1712508060216</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712508060216</updated>
+    </task>
+    <task id="LOCAL-00006" summary="final LAB002, obsluga zle dodanego pliku danych&#10;254321 - Adam Bartosik">
+      <option name="closed" value="true" />
+      <created>1712508110243</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712508110243</updated>
+    </task>
+    <task id="LOCAL-00007" summary="final LAB002, obsluga zle dodanego pliku danych final&#10;254321 - Adam Bartosik">
+      <option name="closed" value="true" />
+      <created>1712508393828</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1712508393828</updated>
+    </task>
+    <task id="LOCAL-00008" summary="lab03 - poczatek&#10;254321 - Adam Bartosik">
+      <option name="closed" value="true" />
+      <created>1713604181810</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713604181810</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -134,6 +244,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="LAB01 directory&#10;254321" />
-    <option name="LAST_COMMIT_MESSAGE" value="LAB01 directory&#10;254321" />
+    <MESSAGE value="final LAB01&#10;254321 - Adam Bartosik" />
+    <MESSAGE value="final LAB002&#10;254321 - Adam Bartosik" />
+    <MESSAGE value="final LAB002, obsluga zle dodanego pliku danych&#10;254321 - Adam Bartosik" />
+    <MESSAGE value="final LAB002, obsluga zle dodanego pliku danych final&#10;254321 - Adam Bartosik" />
+    <MESSAGE value="lab03 - poczatek&#10;254321 - Adam Bartosik" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab03 - poczatek&#10;254321 - Adam Bartosik" />
   </component>
 </project>
