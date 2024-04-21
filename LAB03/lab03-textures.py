@@ -14,7 +14,7 @@ from sklearn.metrics import accuracy_score
 
 def choose_texture_folder(prompt):
     root = tk.Tk()
-    root.withdraw()  # Ukrycie głównego okna
+    root.withdraw()
     folder_chosen = filedialog.askdirectory(title=prompt)
     root.destroy()
     return folder_chosen
@@ -45,7 +45,7 @@ def compute_texture_features(images, dist_list, angle_list, feature_list, level_
     return np.array(feature_data)
 
 def setup_classifier():
-    # Ustawienie modelu z opcją probability
+
     return SVC(kernel='linear', probability=True)
 def execute_image_classification(model, scaler):
     root = tk.Tk()
@@ -58,9 +58,9 @@ def execute_image_classification(model, scaler):
             image = img_as_ubyte(image)
             image_features = compute_texture_features([image], [1, 3, 5], [0, np.pi / 4, np.pi / 2, 3 * np.pi / 4], ['dissimilarity', 'correlation', 'contrast', 'energy', 'homogeneity', 'ASM'])
             scaled_features = scaler.transform(image_features)
-            probabilities = model.predict_proba(scaled_features)[0]  # Pobranie prawdopodobieństw dla pierwszego (i jedynego) obrazu
+            probabilities = model.predict_proba(scaled_features)[0]
             prediction = model.predict(scaled_features)
-            # Formatowanie wiadomości z maksymalnym prawdopodobieństwem
+
             max_prob = np.max(probabilities)
             message = f"Predicted Texture: {prediction[0]}\nConfidence: {max_prob:.2f}"
             messagebox.showinfo("Prediction Results", message)
