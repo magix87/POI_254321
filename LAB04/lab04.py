@@ -53,6 +53,8 @@ def train_and_evaluate_model(model, X_train, y_train, X_test, y_test):
 
 def main():
     file_path = select_file("Wybierz plik")
+    #file_path = "texture_features_lab04.csv" #ominiecie tkintera w jupyter i google colab
+
     X, y = load_data(file_path)
     y_onehot = preprocess_labels(y)
     num_classes = y_onehot.shape[1]
